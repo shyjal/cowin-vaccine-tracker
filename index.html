@@ -1,0 +1,94 @@
+<html>
+   <head>
+      <title>District Vaccine Availability</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNTFXGGNJB"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HNTFXGGNJB');
+      </script>
+
+   </head>
+   <body class="container">
+      <div style="margin-bottom:20px">
+         <section>
+            <h1 class="my-3">Vaccine Availability Tracker</h1>
+           
+             <p style="color: #818182;">
+                Once you select a district, you can use the link to load that district's availability instantly.
+             </p>
+            
+         </section>
+      </div>
+      <form onsubmit="check()" style="margin-bottom: 0px;">
+         <div class="row">
+            <div class="col-sm">
+               <label for="states">State:</label>
+               <select class="custom-select custom-select-sm" name="states" id="states" onchange="changeState()">
+               </select>  
+            </div>
+            <div class="col-sm">
+               <label for="districts">District:</label>
+               <select class="custom-select custom-select-sm" name="districts" id="districts">
+               </select>
+            </div>
+         </div>
+         <div class="row my-3">
+            <div class="col-sm">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="week" id="weekThis" value="this" checked="checked">
+                <label class="form-check-label" for="weekThis">This week</label>
+             </div>
+            <div class="form-check form-check-inline">
+               <input class="form-check-input" type="radio" name="week" id="weekNext" value="next">
+               <label class="form-check-label" for="weekNext">Next week</label>
+            </div>
+            </div>
+         </div>
+         <div class="row my-3">
+            <div class="col-sm">
+            <div class="form-check form-check-inline">
+               <input class="form-check-input" type="radio" name="age" id="age18" value="18" checked="checked">
+               <label class="form-check-label" for="age18">Age 18+</label>
+            </div>
+            <div class="form-check form-check-inline">
+               <input class="form-check-input" type="radio" name="age"  id="age45" value="45">
+               <label class="form-check-label" for="age45">Age 45+</label>
+            </div>
+            </div>
+         </div>
+         <input type="button" class="btn btn-primary" value="Check Available Centers" onclick="check()">
+      </form>
+      <div id="results">
+      </div>
+      <p style="border-top: 1px solid #eee;margin-top: 20px;">
+         <br/>
+         Tracker link for major cities 👇
+      </p>
+      <p>
+         <a href="/?state=9&age=18&district=New+Delhi">New delhi</a> | 
+         <a href="/?state=21&age=18&district=Mumbai">Mumbai</a> | 
+         <a href="/?state=32&age=18&district=Hyderabad">Hybrabad</a> | 
+         <a href="/?state=11&age=18&district=Ahmedabad">Ahmedabad</a> |
+         <a href="/?state=31&age=18&district=Chennai">Chennai</a> | 
+         <a href="/?state=16&age=18&district=BBMP">Bangalore</a> | 
+         <a href="/?state=36&age=18&district=Kolkata">Kolkata</a> | 
+         <a href="/?state=21&age=18&district=Pune">Pune</a> | 
+         <a href="/?state=17&age=18&district=Ernakulam">Cochin</a>
+      </p>
+      <p style="color: #818182;">
+         Powered by <a href="https://apisetu.gov.in/public/marketplace/api/cowin" target="_blank" style="color:#484848">Co-WIN Public API</a>
+      </p>
+      <script
+         src="https://code.jquery.com/jquery-3.6.0.min.js"
+         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+         crossorigin="anonymous"></script>     
+      <script src="data.js"></script>
+      <script src="script.js"></script>
+   </body>
+</html>
