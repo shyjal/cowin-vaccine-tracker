@@ -14,8 +14,8 @@ function getDate() {
 
   weeekStart = new Date(date.setDate(diff));
 
-  var month = weeekStart.getMonth() + 1;
-  var day = weeekStart.getDate();
+  var month = ('0' + (weeekStart.getMonth() + 1)).slice(-2);
+  var day = ('0' + weeekStart.getDate()).slice(-2);
   var year = weeekStart.getFullYear();
   weekStartDate = day + '-' + month + '-' + year;
   return weekStartDate;
@@ -72,6 +72,7 @@ function get(callback) {
   pageUrl.searchParams.append('district', districtName);
 
   window.history.pushState(null, null, pageUrl);
+  document.title = districtName + ' Vaccine Availability';
 
   if (window.localStorage) {
     localStorage.setItem('state', state_id);
