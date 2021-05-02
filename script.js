@@ -143,11 +143,11 @@ function check() {
           res.centers.length +
           ' centers in ' +
           districtName +
-          ', there are no ' +
-          age +
-          '+ centers available for a week starting from date ' +
+          ', there are no centers available for a week starting from date ' +
           weekStartDate +
-          '.'
+          ' for ' +
+          age +
+          '+ age category.'
       );
 
       $(results).append(
