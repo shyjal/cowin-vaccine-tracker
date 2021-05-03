@@ -48,6 +48,10 @@
                <input class="form-check-input" type="radio" name="week" id="weekNext" value="next">
                <label class="form-check-label" for="weekNext">Next week</label>
             </div>
+            <div class="form-check form-check-inline">
+               <input class="form-check-input" type="radio" name="week" id="weekAfter" value="after">
+               <label class="form-check-label" for="weekAfter">The week after</label>
+            </div>
             </div>
          </div>
          <div class="row my-3">
@@ -68,18 +72,25 @@
       </div>
       <p style="border-top: 1px solid #eee;margin-top: 20px;">
          <br/>
+         Tracker link for other districts in this state 👇
+      </p>
+      <p id="other-districts">
+      </p>
+
+      <p style="border-top: 1px solid #eee;margin-top: 20px;">
+         <br/>
          Tracker link for major cities 👇
       </p>
       <p>
-         <a href="/?state=9&age=18&district=New+Delhi">New delhi</a> | 
+         | <a href="/?state=9&age=18&district=New+Delhi">New delhi</a> | 
          <a href="/?state=21&age=18&district=Mumbai">Mumbai</a> | 
-         <a href="/?state=32&age=18&district=Hyderabad">Hybrabad</a> | 
-         <a href="/?state=11&age=18&district=Ahmedabad">Ahmedabad</a> |
-         <a href="/?state=31&age=18&district=Chennai">Chennai</a> | 
-         <a href="/?state=16&age=18&district=BBMP">Bangalore</a> | 
-         <a href="/?state=36&age=18&district=Kolkata">Kolkata</a> | 
          <a href="/?state=21&age=18&district=Pune">Pune</a> | 
-         <a href="/?state=17&age=18&district=Ernakulam">Cochin</a>
+         <a href="/?state=11&age=18&district=Ahmedabad">Ahmedabad</a> |
+         <a href="/?state=36&age=18&district=Kolkata">Kolkata</a> | 
+         <a href="/?state=32&age=18&district=Hyderabad">Hybrabad</a> | 
+         <a href="/?state=16&age=18&district=BBMP">Bangalore</a> | 
+         <a href="/?state=31&age=18&district=Chennai">Chennai</a> | 
+         <a href="/?state=17&age=18&district=Ernakulam">Cochin</a> |
       </p>
       <p style="color: #818182;">
          Code open sourced at <a href="https://github.com/shyjal/cowin-vaccine-tracker" target="_blank" style="color:#484848">Github</a> | Availability is checked realtime using <a href="https://apisetu.gov.in/public/marketplace/api/cowin" target="_blank" style="color:#484848">Co-WIN Public API</a>

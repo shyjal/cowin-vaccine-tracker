@@ -1,6 +1,7 @@
 var age18 = document.getElementById('age18');
 var age45 = document.getElementById('age45');
-var weekThis = document.getElementById('weekThis');
+var weekNext = document.getElementById('weekNext');
+var weekAfter = document.getElementById('weekAfter');
 var results = document.getElementById('results');
 var apiBase = 'https://cdn-api.co-vin.in/api/v2/';
 var weekStartDate = null;
@@ -8,8 +9,10 @@ var weekStartDate = null;
 function getDate() {
   var date = new Date();
   var diff = date.getDate();
-  if (!weekThis.checked) {
+  if (weekNext.checked) {
     diff += 7;
+  } else if (weekAfter.checked) {
+    diff += 14;
   }
 
   weeekStart = new Date(date.setDate(diff));
@@ -49,6 +52,7 @@ function changeState() {
   var stateId = $('#states').val();
   var stateDistricts = districts[stateId - 1];
   $('#districts').empty();
+  $('#other-districts').html('| ');
   for (var index = 0; index < stateDistricts.length; index++) {
     $('#districts').append(
       '<option value="' +
@@ -56,6 +60,15 @@ function changeState() {
         '">' +
         stateDistricts[index].district_name +
         '</option>'
+    );
+    $('#other-districts').append(
+      '<a href="/?state=' +
+        stateId +
+        '&age=18&district=' +
+        stateDistricts[index].district_name.replaceAll(' ', '+') +
+        '">' +
+        stateDistricts[index].district_name +
+        '</a> | '
     );
   }
 }
