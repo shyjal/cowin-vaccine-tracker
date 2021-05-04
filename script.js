@@ -65,7 +65,7 @@ function changeState() {
       '<a href="/?state=' +
         stateId +
         '&age=18&district=' +
-        stateDistricts[index].district_name.replaceAll(' ', '+') +
+        stateDistricts[index].district_name.split(' ').join('+') +
         '">' +
         stateDistricts[index].district_name +
         '</a> | '
@@ -213,10 +213,9 @@ $(document).ready(function () {
   if (getUrlParam('state') && getUrlParam('district') && getUrlParam('age')) {
     // Get from url parameter
     prevState = getUrlParam('state');
-    prevDistrict = decodeURIComponent(getUrlParam('district')).replaceAll(
-      '+',
-      ' '
-    );
+    prevDistrict =
+      decodeURIComponent(getUrlParam('district')) &&
+      decodeURIComponent(getUrlParam('district')).split(' ').join('+');
     prevAge = getUrlParam('age');
   } else if (
     window.localStorage &&
@@ -229,7 +228,6 @@ $(document).ready(function () {
     prevDistrict = localStorage.getItem('district');
     prevAge = localStorage.getItem('age');
   }
-  console.log(prevDistrict);
 
   prevDistrict = getDistrictIdfromName(prevState, prevDistrict);
 
